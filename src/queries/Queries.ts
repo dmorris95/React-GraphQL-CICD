@@ -25,3 +25,26 @@ export const GET_CHARACTER = gql`
         }
     }
 `;
+
+export const GET_LOCATIONS = gql`
+    query {
+        locations {
+            results {
+                id
+                name
+            }
+        }
+    }
+`;
+
+export const GET_CHARACTERS_LOCATIONS = gql`
+    query SearchName($name: String!) {
+      characters(filter: { name: $name }) {
+        results {
+          location {
+            name
+          }
+        }
+      }
+    }
+`;
